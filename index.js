@@ -14,6 +14,7 @@ app.get('/', (req,res)=> {
 })
 
 app.get('/api/city', async (req,res)=> {
+    res.header('Access-Control-Allow-Origin', '*');
     cityWeatherService.get(req,res)
 })
 
@@ -30,6 +31,7 @@ app.get('/api/cities', (req,res) => {
 })
 
 app.get('/api/cityNames', (req,res) => {
+    res.header('Access-Control-Allow-Origin', '*');
     cityWeatherService.getAllCityNames(req,res)
 })
 
