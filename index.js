@@ -1,6 +1,8 @@
 const express = require('express');
 const { cityWeatherService } = require('./services/cityWeatherService');
 
+require("dotenv").config();
+
 const app = express()
 
 app.use(express.json());
@@ -40,7 +42,7 @@ app.put('/api/update/city/:id', (req, res) => {
 })
 
 
-app.listen(8099, () => {
+app.listen(process.env.PORT, () => {
 
     console.log('Express is running!')
 })
