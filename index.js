@@ -9,12 +9,16 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 app.get('/', (req,res)=> {
     res.send("API is running...")
 })
 
 app.get('/api/city', async (req,res)=> {
-    res.header('Access-Control-Allow-Origin', '*');
     cityWeatherService.get(req,res)
 })
 
@@ -31,7 +35,6 @@ app.get('/api/cities', (req,res) => {
 })
 
 app.get('/api/cityNames', (req,res) => {
-    res.header('Access-Control-Allow-Origin', '*');
     cityWeatherService.getAllCityNames(req,res)
 })
 
