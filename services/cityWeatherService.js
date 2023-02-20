@@ -16,7 +16,7 @@ const cityWeatherService = {
 
         try {
 
-            const data = await getWeatherData(req.query.city)
+            const data = await getWeatherData(req.query.city,"weather","forecast",req.query.units)
        
             var cityWeather = new CityWeather(data)
 
@@ -161,7 +161,7 @@ const cityWeatherService = {
 }
 
 
-const getWeatherData = async (cityName, infoType1 = "weather", infoType2 = "forecast", units = "metric") => {
+const getWeatherData = async (cityName, infoType1, infoType2, units = "metric") => {
 
     let data = {}
 
