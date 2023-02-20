@@ -189,6 +189,7 @@ const getWeatherData = async (query, infoType1, infoType2) => {
             data.sunrise = response.data.sys.sunrise
             data.sunset = response.data.sys.sunset
             data.speed = response.data.wind.speed
+            data.offset = Math.ceil(response.timezone / 3600)
 
             data.details = response.data.weather[0].main
             data.icon = response.data.weather[0].icon
