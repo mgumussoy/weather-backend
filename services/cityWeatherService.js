@@ -170,8 +170,7 @@ const getWeatherData = async (query, infoType1, infoType2) => {
         url: process.env.BASE_URL + "/" + infoType1,
         params: {
           appid: process.env.API_KEY,
-          q: cityName,
-          units: units
+          ...query
         },
     }).then(async (response) => {
 
