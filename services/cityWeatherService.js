@@ -164,6 +164,8 @@ const cityWeatherService = {
 const getWeatherData = async (query, infoType1, infoType2) => {
 
     let data = {}
+    
+    data.units = query.units != null ? query.units : "metric"
 
     await axios({
         method: "get",
@@ -197,7 +199,8 @@ const getWeatherData = async (query, infoType1, infoType2) => {
             params: {
               appid: process.env.API_KEY,
               lat: data.lat,
-              lon: data.lon
+              lon: data.lon,
+              units: data.units
             },
         }).then((response) => {
 
