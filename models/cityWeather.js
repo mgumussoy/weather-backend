@@ -19,7 +19,8 @@ const CityWeatherSchema = mongoose.Schema({
     icon: String,
     speed: Number,
     list: [{day: String, time: String, temp: Number, icon: String}],
-    units: String 
+    units: String,
+    offset: Number
    
 })
 
